@@ -237,7 +237,7 @@ export default {
       return String(e).substring(0,5);
     },
     formatMobile(e){
-      return String(e).substring(0,12);
+      return String(e).substring(0,10);
     },
     getSubject(){
       return new Promise((resolve, reject) =>{
@@ -281,7 +281,7 @@ export default {
               this.$router.push({name: "Login"})
             })
             .catch((e) =>{
-                this.error=e.response.data.message
+                this.error="fill all the fields!!!"
               }
             )
       } else {
