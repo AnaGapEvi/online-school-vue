@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
     <dashboard-nav />
-    <div style="width: 90%;  margin: 20px auto">
+    <div style="width: 90%;  margin: 0 auto; padding-top: 80px">
       <div style="margin-bottom: 15px;padding: 15px 10px 15px 10px; color: black;">
         <p>Answer the task {{this.$route.params.id}}</p>
 
