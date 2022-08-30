@@ -32,7 +32,7 @@
             </validation>
             <validation
               name="mobile"
-              rules="required|min:5|max:12"
+              rules="required"
             >
               <b-form-group
                 id="input-group-2"
