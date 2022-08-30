@@ -1,8 +1,6 @@
 const express = require('express');
 const port = process.env.PORT || 3000
 
-
-
 const serveStatic = require("serve-static")
 const path = require('path');
 
