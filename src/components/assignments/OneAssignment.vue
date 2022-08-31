@@ -15,8 +15,8 @@
       <img :src="`http://127.0.0.1:8000/`+item.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px">
 
 
-      <b-button variant="warning"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-assignment/'+item.id}">Edit</router-link>  </b-button>
-      <b-button variant="danger" @click=deleteAssignment(item.id)> Delete </b-button>
+      <b-button variant="warning" v-if="role==='teacher'"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-assignment/'+item.id}">Edit</router-link>  </b-button>
+      <b-button variant="danger" v-if="role==='teacher'" @click=deleteAssignment(item.id)> Delete </b-button>
     </div>
   </div>
 </template>
@@ -29,10 +29,23 @@ export default {
   data(){
     return{
       moment:moment,
-      item:this.assignment
+      item:this.assignment,
+      role:''
     }
   },
   methods:{
+    getMy(){
+      return new Promise((resolve, reject) => {
+        this.axios.get('/me')
+          .then(result => {
+            this.email = result.data.user.email
+            this.role = result.data.user.role
+            resolve(true)
+          }).catch(error => {
+          reject(error)
+        })
+      })
+    },
     deleteAssignment(id){
       this.axios.delete(`/delete-assignment/${id}`).then(response =>{
         window.location.reload()

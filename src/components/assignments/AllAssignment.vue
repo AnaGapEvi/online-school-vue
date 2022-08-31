@@ -1,9 +1,9 @@
 <template>
   <div class="news">
       <dashboard-nav style="position: fixed;z-index: 1; width: 100%"/>
-      <div style="display: flex; justify-content: space-between; padding-top: 60px">
+      <div style="display: flex; justify-content: space-between; padding-top: 90px">
         <aside-navbar style="width: 20%;"/>
-        <div style="width: 78%; margin-top: 25px; background-color: #324960">
+        <div style="width: 78%; background-color: #324960">
           <div style="margin-bottom: 15px;padding: 15px 10px 15px 10px; background-color: white;display: flex; justify-content: space-between">
             <h4>All Assignments</h4>
           </div>
