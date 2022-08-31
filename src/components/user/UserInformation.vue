@@ -2,8 +2,8 @@
   <div class="subjects">
     <dashboard-nav />
     <div style="display: flex;justify-content: space-between; padding-top: 80px">
-      <aside-navbar style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1);width: 18%; background-color: white"/>
-      <div  style=" box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1); border-radius: 5px; width: 100%; background-color: #324960; padding: 15px ">
+      <aside-navbar style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1);width: 80%; background-color: white"/>
+      <div  style=" box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1); border-radius: 5px; width: 75%; background-color: #324960; padding: 15px ">
         <div style="display: flex; justify-content: center">
           <div>
             <h5 style="color: white">{{user.role}}</h5>
