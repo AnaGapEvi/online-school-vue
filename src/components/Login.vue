@@ -102,8 +102,7 @@ export default {
             this.$router.push({name: "Home"})
             window.location.reload()
           }).catch(error => {
-          this.error=error.response.data.message
-          // this.error='bolor dashter@ partadir en'
+          this.error="fill all the fields!!!"
           this.form.password = ''
         })
       })

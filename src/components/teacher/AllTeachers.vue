@@ -1,8 +1,8 @@
 <template>
   <div class="subjects">
     <dashboard-nav style="position: fixed;z-index: 1; width: 100%"/>
-    <div style="display: flex; padding-top: 90px " ref="hasScrolledToBottom">
-      <aside-navbar style="width: 30%; background-color: white; margin-right: 15px"/>
+    <div style="display: flex; justify-content: space-between; padding-top: 90px " ref="hasScrolledToBottom">
+      <aside-navbar style="width: 30%;height: 300px; background-color: white "/>
       <div  style="width: 100%; background-color: white; padding: 15px ">
         <div style="display: flex; justify-content: space-between">
           <h1>All Teachers</h1>
@@ -40,7 +40,7 @@
             <th>No</th>
             <th>Teachers</th>
 <!--            <th>Subjects</th>-->
-            <th style="text-align: center">Course</th>
+            <th >Course</th>
             <th>Mobile</th>
             <th style="text-align: center; padding: 5px">Edit</th>
           </tr>
@@ -49,7 +49,7 @@
             <td style="padding: 5px">{{ teacher.name}}</td>
 <!--            <td style="padding: 5px">{{ teacher.subject.name}}</td>-->
             <td style="padding: 5px">
-              <ul style="list-style-type: none; margin: 0" v-for="course in teacher.courses">
+              <ul style="list-style-type: none; " v-for="course in teacher.courses">
                 <li>{{ course.name}}</li>
               </ul>
             </td>
