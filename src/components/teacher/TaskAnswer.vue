@@ -2,7 +2,7 @@
   <div>
     <div class="dashboard">
       <dashboard-nav/>
-      <div style="width: 90%;    background-color: #324960; margin: 20px auto">
+      <div style="width: 90%;background-color: #324960; margin: 20px auto; padding-top: 80px">
         <div style="box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);margin: 25px;padding: 15px 10px 15px 10px; background-color: white; border-radius: 20px">
           <h4 style="text-align: center">Assignments</h4> <hr>
           <div  style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);  margin: 20px auto; text-align: center; padding: 10px" v-for="task in tasks">
