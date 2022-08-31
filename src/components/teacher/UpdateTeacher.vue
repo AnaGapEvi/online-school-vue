@@ -3,7 +3,7 @@
     <nab-bar/>
     <div class="register">
       <div class="Sign up"  style="padding-top: 60px">
-        <h3 style="text-align: center"> Create account </h3>
+        <h3 style="text-align: center"> Edit teacher </h3>
         <div style="background-color: white; color: black; width: 600px; border-radius: 15px; padding: 25px">
           <validation-observer ref="observer" >
             <b-form v-on:submit.prevent="edit_teacher" method="post">
