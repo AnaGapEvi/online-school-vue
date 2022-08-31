@@ -16,7 +16,7 @@
 
 
       <b-button variant="warning" v-if="role==='teacher'"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-assignment/'+item.id}">Edit</router-link>  </b-button>
-      <b-button variant="danger" v-if="role==='teacher'" @click=deleteAssignment(item.id)> Delete </b-button>
+      <b-button variant="danger"  @click=deleteAssignment(item.id)> Delete </b-button>
     </div>
   </div>
 </template>
