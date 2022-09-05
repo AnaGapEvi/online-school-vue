@@ -46,6 +46,7 @@
                     id="input-3"
                     v-model="teacher.mobile"
                     type="number"
+                    :formatter="formatMobile"
                     :state="errors[0] ? false : null"
                     trim
                   ></b-form-input>
@@ -95,23 +96,23 @@
                   ></b-form-input>
                 </b-form-group>
               </validation>
-<!--              <validation-->
-<!--                name="course"-->
-<!--                rules="required"-->
-<!--              >-->
-<!--                <b-form-group-->
-<!--                  id="input-group-5"-->
-<!--                  label="Course:"-->
-<!--                  label-for="input-5"-->
-<!--                  description=""-->
-<!--                  slot-scope="{ errors }"-->
-<!--                  :invalid-feedback="errors[0]"-->
-<!--                >-->
-<!--                  <select v-model="course_id" >-->
-<!--                    <option v-for="course in courses" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="course.id " v-bind:value="course.id"> {{course.name}}</option>-->
-<!--                  </select>-->
-<!--                </b-form-group>-->
-<!--              </validation>-->
+              <validation
+                name="course"
+                rules="required"
+              >
+                <b-form-group
+                  id="input-group-5"
+                  label="Course:"
+                  label-for="input-5"
+                  description=""
+                  slot-scope="{ errors }"
+                  :invalid-feedback="errors[0]"
+                >
+                  <select v-model="course_id" >
+                    <option v-for="course in courses" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="course.id " v-bind:value="course.id"> {{course.name}}</option>
+                  </select>
+                </b-form-group>
+              </validation>
               <b-button style="width: 100%; background-color: deepskyblue; border: none; margin-top: 10px" type="submit" @click="edit_teacher()">Update</b-button>
             </b-form>
           </validation-observer>
@@ -154,6 +155,9 @@ export default {
       }).catch(error => {
         return error
       })
+    },
+    formatMobile(e){
+      return String(e).substring(0,10);
     },
     getCourse(){
       return new Promise((resolve, reject) =>{
