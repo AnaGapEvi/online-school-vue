@@ -7,6 +7,7 @@ import AnswerAssignment from "./AnswerAssignment";
 import AllUsers from "./AllUsers";
 import CheckedAssignments from "./CheckedAssignments";
 import UnCheckedAssignment from "./UnCheckedAssignment";
+import UpdateUser from "./UpdateUser";
 
 export default [
   { path: '/register', name:'Register', component: Register },
@@ -18,4 +19,5 @@ export default [
   { path: '/all-users', name:'AllUsers', component: AllUsers },
   { path: '/checked-assignments', name:'CheckedAssignments', component: CheckedAssignments },
   { path: '/unchecked-assignments', name:'UnCheckedAssignment', component: UnCheckedAssignment },
+  { path: '/update-profile/:id', name:'UpdateUser', component: UpdateUser },
 ]

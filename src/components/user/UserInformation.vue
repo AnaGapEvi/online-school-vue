@@ -30,7 +30,7 @@
                   </b-card-body>
                 </b-col>
               </b-row>
-               <router-link style="text-decoration: none; color: white" :to="{path: '/edit-teacher/'+user.id}"><b-button style="width: 100%" variant="danger">Edit</b-button></router-link>
+               <router-link style="text-decoration: none; color: white" :to="{path: '/update-profile/'+user.id}"><b-button style="width: 100%" variant="danger">Edit</b-button></router-link>
             </b-card>
           </div>
          </div>

@@ -3,10 +3,10 @@
     <nab-bar/>
     <div class="register">
       <div class="Sign up"  style="padding-top: 60px">
-        <h3 style="text-align: center"> Edit teacher </h3>
+        <h3 style="text-align: center"> Update account </h3>
         <div style="background-color: white; color: black; width: 600px; border-radius: 15px; padding: 25px">
           <validation-observer ref="observer" >
-            <b-form v-on:submit.prevent="edit_teacher" method="post">
+            <b-form v-on:submit.prevent="update_user" method="post">
               <validation
                 name="name"
                 rules="required"
@@ -21,7 +21,7 @@
                 >
                   <b-form-input
                     id="input-1"
-                    v-model="teacher.name"
+                    v-model="user.name"
                     type="text"
                     placeholder="name..."
                     :state="errors[0] ? false : null"
@@ -44,7 +44,7 @@
                 >
                   <b-form-input
                     id="input-3"
-                    v-model="teacher.mobile"
+                    v-model="user.mobile"
                     type="number"
                     :formatter="formatMobile"
                     :state="errors[0] ? false : null"
@@ -66,7 +66,7 @@
                 >
                   <b-form-input
                     id="input-3"
-                    v-model="teacher.email"
+                    v-model="user.email"
                     type="email"
                     placeholder="Enter email"
                     :state="errors[0] ? false : null"
@@ -88,7 +88,7 @@
                 >
                   <b-form-input
                     id="input-1"
-                    v-model="teacher.password"
+                    v-model="user.password"
                     type="password"
                     placeholder="Enter password"
                     :state="errors[0] ? false : null"
@@ -96,28 +96,72 @@
                   ></b-form-input>
                 </b-form-group>
               </validation>
-<!--              <validation-->
-<!--                name="course"-->
-<!--                rules="required"-->
-<!--              >-->
-<!--                <b-form-group-->
-<!--                  id="input-group-5"-->
-<!--                  label="Course:"-->
-<!--                  label-for="input-5"-->
-<!--                  description=""-->
-<!--                  slot-scope="{ errors }"-->
-<!--                  :invalid-feedback="errors[0]"-->
-<!--                >-->
-<!--                  <select v-model="course_id" >-->
-<!--                    <option v-for="course in courses" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="course.id " v-bind:value="course.id"> {{course.name}}</option>-->
-<!--                  </select>-->
-<!--                </b-form-group>-->
-<!--              </validation>-->
-              <b-button style="width: 100%; background-color: deepskyblue; border: none; margin-top: 10px" type="submit" @click="edit_teacher()">Update</b-button>
+
+              <validation
+                name="roll-number"
+                rules="required"
+              >
+                <b-form-group
+                  v-if="user.role==='student'"
+                  id="input-group-5"
+                  label="Roll number:"
+                  label-for="input-5"
+                  description=""
+                  slot-scope="{ errors }"
+                  :invalid-feedback="errors[0]"
+                >
+                  <b-form-input
+                    id="input-5"
+                    v-model="user.role_number"
+                    type="number"
+                    placeholder="enter number"
+                    :formatter="formatRole"
+                    :state="errors[0] ? false : null"
+                    trim
+                  ></b-form-input>
+                </b-form-group>
+              </validation>
+              <validation
+                v-if="user.role!=='admin'"
+                name="course"
+                rules="required"
+              >
+                <b-form-group
+
+                  id="input-group-5"
+                  label="Course:"
+                  label-for="input-5"
+                  description=""
+                  slot-scope="{ errors }"
+                  :invalid-feedback="errors[0]"
+                >
+                  <select v-model="user.course_id" >
+                    <option v-for="course in courses" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="course.id " v-bind:value="course.id"> {{course.name}}</option>
+                  </select>
+                </b-form-group>
+              </validation>
+              <validation
+                name="course"
+                rules="required"
+              >
+                <b-form-group
+                  id="input-group-5"
+                  v-if="user.role==='teacher'"
+                  label="Subject:"
+                  label-for="input-5"
+                  description=""
+                  slot-scope="{ errors }"
+                  :invalid-feedback="errors[0]"
+                >
+                  <select v-model="user.subject_id" >
+                    <option v-for="subject in subjects" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="subject.id " v-bind:value="subject.id"> {{subject.name}}</option>
+                  </select>
+                </b-form-group>
+              </validation>
+              <b-button style="width: 100%; background-color: deepskyblue; border: none; margin-top: 10px" type="submit" >Update</b-button>
             </b-form>
           </validation-observer>
         </div>
-        <router-link to="/all-teachers">All Teacher</router-link>
 
         <span v-if="error!==''">{{error}}</span>
       </div>
@@ -134,30 +178,35 @@ export default {
 
   data () {
     return {
-      teacher:{},
+      user:{},
       error:'',
-      course_id:'',
       subjects:[],
-      courses:[],
-      user:[]
+      courses:[]
     }
   },
   mounted() {
     this.getSubject()
-    this.get_teacher()
-    this.getMy()
     this.getCourse()
+    this.get_teacher()
+
   },
   methods:{
-    getMy() {
-      this.axios.get('/me').then(res => {
-        this.user = res.data.user
-      }).catch(error => {
-        return error
-      })
+    formatRole(e){
+      return String(e).substring(0,5);
     },
     formatMobile(e){
       return String(e).substring(0,10);
+    },
+    getSubject(){
+      return new Promise((resolve, reject) =>{
+        this.axios.get('/subjects').
+        then((res)=>{
+          this.subjects=res.data
+          return resolve(true);
+        }).catch((error)=>{
+          return reject(error)
+        })
+      })
     },
     getCourse(){
       return new Promise((resolve, reject) =>{
@@ -171,40 +220,26 @@ export default {
       })
 
     },
-    getSubject(){
-      return new Promise((resolve, reject) =>{
-        this.axios.get('/subjects').
-        then((res)=>{
-          this.subjects=res.data
-          return resolve(true);
-        }).catch((error)=>{
-          return reject(error)
-        })
-      })
-    },
     get_teacher(){
       this.axios.get(`/teacher/` + this.$route.params.id).then(response =>{
-        this.teacher=response.data
+        this.user=response.data
       }).catch(e=>{
         console.log(e)
       })
     },
-    edit_teacher(){
-      // this.axios.put(`/edit-teacher/`+this.$route.params.id,  {...this.teacher, courseId : this.course_id}).then(response =>{
-      this.axios.put(`/edit-teacher/`+this.$route.params.id,  this.teacher).then(response =>{
-        if(response){
-          if(this.user.role==='teacher'){
-            this.$router.push({name: "UserInformation"});
-          } else if(this.user.role==='admin'){
-            this.$router.push({name: "AllTeachers"});
-          } else {
-            this.$router.push({name: "/"});
-          }
-        }
-      }).catch(e=>{
-        console.log(e)
-      })
-    }
+    update_user(){
+      console.log(this.user)
+        axios.post(`/update-user`, this.user)
+          .then((resp)=> {
+            resp.data
+            this.$router.push({name: "UserInformation"})
+          })
+          .catch((e) =>{
+              this.error=error.response.data.message
+            }
+          )
+      }
+
   }
 }
 </script>
