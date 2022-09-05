@@ -281,7 +281,7 @@ export default {
               this.$router.push({name: "Login"})
             })
             .catch((e) =>{
-                this.error="fill all the fields!!!"
+              this.error=error.response.data.message
               }
             )
       } else {

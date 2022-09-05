@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+  <div class="home" style="display: flex; flex-direction: column">
     <nav-bar/>
     <div class="main">
-        <div class="main1" style="position: absolute">
-            <div style="text-align: left; padding-top:250px; padding-left: 700px">
+        <div class="main1" style="position: relative">
+            <div style="text-align: left;position: absolute; top:40%; right: 10%">
               <p style="font-size: 35px; color: white ">The Best Learning <br> Institute </p>
               <p style="font-size: 15px; text-align: left; color: white">Successful Career Starts With Good Training</p>
             </div>
@@ -12,7 +12,7 @@
     <div style="height: 160px; display: flex; justify-content: center; align-items: center; padding:10px 30px" >
       <textra :data='news' :infinite='true' :timer="3.1" filter="left-right" />
     </div>
-    <footer style="color: white;position: fixed; background-color: black; width: 100%; text-align: center; margin-bottom: 0  " >
+    <footer style="color: white;position: fixed; background-color: black; width: 100%; text-align: center; bottom: 0  " >
       <p style="font-size: 25px">OCAS</p>
       <p style="font-size: 10px">2020 OCAS Online Collage Assignment System</p>
     </footer>
@@ -79,25 +79,16 @@ export default {
   /*min-height: 100vh;*/
 }
 .main{
-
   background-image:  url("https://media-exp1.licdn.com/dms/image/C5612AQF95DO9fuOPGQ/article-cover_image-shrink_600_2000/0/1520185245623?e=1665619200&v=beta&t=ch9CF4D5kJqJ06do-8OCq_8zXyxFKK3x_8sjJOCjIgY");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 500px;
+  width: auto;
+  height: 600px;
 }
 .main1{
   background-color: rgba(0, 0, 0, 0.41);
   width: 100%;
   min-height: 100vh;
 }
-.box{
-  color: white;
-  /*font-family: Ani;*/
-}
 
-.main2{
-  width: 100%;
-  height: 100%;
-}
 </style>

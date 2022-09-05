@@ -12,7 +12,8 @@
       <p>Created: {{ moment(item.created_at).format('YYYY-MM-DD')}}</p>
       <p>{{item.user.name}}</p>
 
-      <img :src="`http://127.0.0.1:8000/`+item.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px">
+<!--      <img :src="`http://127.0.0.1:8000/`+item.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px">-->
+      <img src="https://assignmentstudio3.b-cdn.net/wp-content/uploads/2018/01/tips.png" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px">
 
 
       <b-button variant="warning" v-if="role==='teacher'"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-assignment/'+item.id}">Edit</router-link>  </b-button>

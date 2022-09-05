@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h5>Search task by subject name</h5>
-    <div style="border-radius: 50px;padding: 5px; border: 1px solid deepskyblue ">
-      <b-icon style="margin-right: 15px" icon="search" scale="1" variant="Secondary"></b-icon>
-      <input type="text" placeholder="Search name ......." v-model="keyword" style="border: none; width: 95%;">
+    <h5 style="color: white">Search task by subject name</h5>
+    <div style="border-radius: 50px;padding: 0 15px; border: none;background: rgba(0,0,0,0.32);">
+      <b-icon style="color: white; margin-right: 15px" icon="search" scale="1" variant="Secondary; " ></b-icon>
+      <input type="text" placeholder="Search name ......." v-model="keyword" style="outline:none;background: none; border: none; width: 95%; padding: 5px; color: white">
     </div>
     <div v-if="Tasks.length > 0">
       <div v-for="task in Tasks" :key="task.id">
