@@ -111,7 +111,6 @@ export default {
       return new Promise((resolve, reject) => {
         this.axios.get('/notifications-course').then((res) => {
           this.notifications = res.data
-          console.log(this.notifications)
           return resolve(true);
         }).catch((error) => {
           return reject(error)

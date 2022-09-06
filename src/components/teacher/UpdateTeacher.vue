@@ -96,23 +96,23 @@
                   ></b-form-input>
                 </b-form-group>
               </validation>
-<!--              <validation-->
-<!--                name="course"-->
-<!--                rules="required"-->
-<!--              >-->
-<!--                <b-form-group-->
-<!--                  id="input-group-5"-->
-<!--                  label="Course:"-->
-<!--                  label-for="input-5"-->
-<!--                  description=""-->
-<!--                  slot-scope="{ errors }"-->
-<!--                  :invalid-feedback="errors[0]"-->
-<!--                >-->
-<!--                  <select v-model="course_id" >-->
-<!--                    <option v-for="course in courses" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="course.id " v-bind:value="course.id"> {{course.name}}</option>-->
-<!--                  </select>-->
-<!--                </b-form-group>-->
-<!--              </validation>-->
+              <validation
+                name="course"
+                rules="required"
+              >
+                <b-form-group
+                  id="input-group-5"
+                  label="Course:"
+                  label-for="input-5"
+                  description=""
+                  slot-scope="{ errors }"
+                  :invalid-feedback="errors[0]"
+                >
+                  <select v-model="course_id" >
+                    <option v-for="course in courses" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="course.id " v-bind:value="course.id"> {{course.name}}</option>
+                  </select>
+                </b-form-group>
+              </validation>
               <b-button style="width: 100%; background-color: deepskyblue; border: none; margin-top: 10px" type="submit" @click="edit_teacher()">Update</b-button>
             </b-form>
           </validation-observer>
@@ -143,7 +143,6 @@ export default {
     }
   },
   mounted() {
-    this.getSubject()
     this.get_teacher()
     this.getMy()
     this.getCourse()
@@ -171,19 +170,9 @@ export default {
       })
 
     },
-    getSubject(){
-      return new Promise((resolve, reject) =>{
-        this.axios.get('/subjects').
-        then((res)=>{
-          this.subjects=res.data
-          return resolve(true);
-        }).catch((error)=>{
-          return reject(error)
-        })
-      })
-    },
     get_teacher(){
       this.axios.get(`/teacher/` + this.$route.params.id).then(response =>{
+        console.log(response.data)
         this.teacher=response.data
       }).catch(e=>{
         console.log(e)
@@ -191,7 +180,7 @@ export default {
     },
     edit_teacher(){
       // this.axios.put(`/edit-teacher/`+this.$route.params.id,  {...this.teacher, courseId : this.course_id}).then(response =>{
-      this.axios.put(`/edit-teacher/`+this.$route.params.id,  this.teacher).then(response =>{
+      this.axios.put(`/edit-teacher/`+this.$route.params.id,  {...this.teacher, courseId : this.course_id}).then(response =>{
         if(response){
           if(this.user.role==='teacher'){
             this.$router.push({name: "UserInformation"});

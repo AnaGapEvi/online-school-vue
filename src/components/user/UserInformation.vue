@@ -1,6 +1,6 @@
 <template>
   <div class="subjects">
-    <dashboard-nav />
+    <dashboard-nav style="position: fixed;z-index: 1; width: 100%"/>
     <div style="display: flex; justify-content: space-between; padding-top: 80px">
       <aside-navbar style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1);width: 18%; background-color: white; margin-right: 15px"/>
       <div  style=" box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1); border-radius: 5px; width: 100%; background-color: #324960; padding: 15px ">
@@ -26,6 +26,9 @@
                     </b-card-text>
                     <b-card-text v-if="user.role_number !== ''"> Role number:
                       {{ user.role_number }}
+                    </b-card-text>
+                    <b-card-text v-for="i in user.courses"> Course:
+                      {{ i.name }}
                     </b-card-text>
                   </b-card-body>
                 </b-col>
@@ -70,9 +73,11 @@ export default {
       }
     },
     getMy() {
-      this.axios.get('/me').then(res => {
-        this.user = res.data.user
-        this.role=res.data.user.role
+      this.axios.get('/me-data').then(res => {
+        this.user = res.data[0]
+
+        console.log(res.data[0])
+        // this.role=res.data.user.role
 
       }).catch(error => {
         return error

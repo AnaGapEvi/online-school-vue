@@ -39,7 +39,7 @@
           <tr style="width: 60%; border: 1px solid black">
             <th>No</th>
             <th>Teachers</th>
-<!--            <th>Subjects</th>-->
+            <th>email</th>
             <th >Course</th>
             <th>Mobile</th>
             <th style="text-align: center; padding: 5px">Edit</th>
@@ -47,7 +47,7 @@
           <tr v-for="(teacher, index) in teachers" :key="index" style="width: 60%; border: 1px solid black">
             <td style="padding: 5px">{{ incrementIndex(index) }}</td>
             <td style="padding: 5px">{{ teacher.name}}</td>
-<!--            <td style="padding: 5px">{{ teacher.subject.name}}</td>-->
+            <td style="padding: 5px">{{ teacher.email}}</td>
             <td style="padding: 5px">
               <ul style="list-style-type: none; margin: 0" v-for="course in teacher.courses">
                 <li>{{ course.name}}</li>

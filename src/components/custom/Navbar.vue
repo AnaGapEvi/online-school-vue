@@ -79,5 +79,5 @@ export default {
 .route:hover{
   color: black;
 }
-
+.nav{}
 </style>

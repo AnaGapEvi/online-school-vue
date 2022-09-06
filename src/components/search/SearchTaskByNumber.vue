@@ -1,11 +1,11 @@
 <template>
   <div>
     <h5>Search By Task Number</h5>
-    <div style="border-radius: 50px;padding: 5px; border: 1px solid deepskyblue ">
+    <div style="border-radius: 50px;padding: 5px; border: 1px solid deepskyblue; margin-bottom: 20px ">
       <b-icon style="margin-right: 15px" icon="search" scale="1" variant="Secondary"></b-icon>
       <input type="text" placeholder="Enter Teacher name ......." v-model="keyword" style="border: none; width: 95%;">
     </div>
-    <div v-if="Tasks.length > 0">
+    <div v-if="Tasks.length > 0" >
 
       <div v-for="task in Tasks" :key="task.id" >
         <div class="cart" style="padding:15px; border-radius: 15px; background-color: #e0d5d5;">

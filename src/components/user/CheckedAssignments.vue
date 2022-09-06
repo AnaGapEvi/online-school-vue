@@ -66,7 +66,6 @@ export default {
       return new Promise((resolve, reject) => {
         this.axios.get('/checked-student-assignments').then((res) => {
           this.checkedAssignments = res.data
-          // console.log(this.assignments)
           return resolve(true);
         }).catch((error) => {
           return reject(error)

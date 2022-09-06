@@ -140,24 +140,6 @@
                   </select>
                 </b-form-group>
               </validation>
-              <validation
-                name="course"
-                rules="required"
-              >
-                <b-form-group
-                  id="input-group-5"
-                  v-if="user.role==='teacher'"
-                  label="Subject:"
-                  label-for="input-5"
-                  description=""
-                  slot-scope="{ errors }"
-                  :invalid-feedback="errors[0]"
-                >
-                  <select v-model="user.subject_id" >
-                    <option v-for="subject in subjects" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="subject.id " v-bind:value="subject.id"> {{subject.name}}</option>
-                  </select>
-                </b-form-group>
-              </validation>
               <b-button style="width: 100%; background-color: deepskyblue; border: none; margin-top: 10px" type="submit" >Update</b-button>
             </b-form>
           </validation-observer>
@@ -173,19 +155,15 @@
 import axios from "axios";
 
 export default {
-  name: 'SignUp',
-  components: {},
-
+  name: 'Update',
   data () {
     return {
       user:{},
       error:'',
-      subjects:[],
       courses:[]
     }
   },
   mounted() {
-    this.getSubject()
     this.getCourse()
     this.get_teacher()
 
@@ -197,17 +175,6 @@ export default {
     formatMobile(e){
       return String(e).substring(0,10);
     },
-    getSubject(){
-      return new Promise((resolve, reject) =>{
-        this.axios.get('/subjects').
-        then((res)=>{
-          this.subjects=res.data
-          return resolve(true);
-        }).catch((error)=>{
-          return reject(error)
-        })
-      })
-    },
     getCourse(){
       return new Promise((resolve, reject) =>{
         this.axios.get('courses').
@@ -218,18 +185,17 @@ export default {
           return reject(error)
         })
       })
-
     },
     get_teacher(){
       this.axios.get(`/teacher/` + this.$route.params.id).then(response =>{
         this.user=response.data
+        console.log(response.data)
       }).catch(e=>{
         console.log(e)
       })
     },
     update_user(){
-      console.log(this.user)
-        axios.post(`/update-user`, this.user)
+        axios.post(`/update-profile`, this.user)
           .then((resp)=> {
             resp.data
             this.$router.push({name: "UserInformation"})
