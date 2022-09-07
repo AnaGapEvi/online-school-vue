@@ -11,7 +11,7 @@
         <div>
           <div style="border-radius: 50px;padding: 5px; border: 1px solid deepskyblue; margin: 15px 0 ">
             <b-icon style="margin-right: 15px" icon="search" scale="1" variant="Secondary"></b-icon>
-            <input type="text" placeholder="Search By Subject ......." v-model="keyword" style="border: none; width: 95%;">
+            <input type="text" placeholder="Search By Subject ......." v-model="keyword" style="outline: none; border: none; width: 95%;">
           </div>
           <div v-if="Tasks.length > 0">
             <div v-for="task in Tasks" :key="task.id" >
@@ -22,7 +22,7 @@
                 <p><b>Marks:</b> {{assignment.mark}}</p>
                 <p><b>Deadline: </b>{{assignment.date}}</p>
                 <p><b> Created: </b>{{ moment(assignment.created_at).format(YYYY-mm-dd)}}</p>
-                <img :src="`http://127.0.0.1:8000/`+assignment.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px">
+                <expandable-image :src="`http://127.0.0.1:8000/`+assignment.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px"></expandable-image>
               </div>
             </div>
           </div>
@@ -115,6 +115,13 @@ export default {
 </script>
 
 <style scoped>
+th{
+  background-color: #74b9ea;
+}
+tr:hover{
+  background:#BDC3C7;
+  color:#FFFFFF;
+}
 .subjects{
   /*padding: 15px;*/
   background-color: #324960;

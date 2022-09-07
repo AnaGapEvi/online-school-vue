@@ -102,4 +102,7 @@ export default {
   min-height: 100vh;
   background-color: #324960;
 }
+#news{
+    ;
+}
 </style>

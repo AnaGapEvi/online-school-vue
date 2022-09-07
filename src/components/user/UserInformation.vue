@@ -6,7 +6,10 @@
       <div  style=" box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1); border-radius: 5px; width: 100%; background-color: #324960; padding: 15px ">
         <div style="display: flex; justify-content: center">
           <div>
-            <h5 style="color: white">{{user.role}}</h5>
+            <div style="width: 100%; display: flex; justify-content: space-between">
+              <h5 style="color: white">{{user.role}}</h5>
+              <button v-if="role==='student'" style="border: none; color: white; background-color: #324960" @click.prevent="back()">X</button>
+            </div>
 
             <b-card no-body class="overflow-hidden" style="max-width: 540px;">
               <b-row no-gutters>
@@ -37,7 +40,6 @@
             </b-card>
           </div>
          </div>
-        <button style="border: none; color: white; background-color: #324960" @click.prevent="back()"><< Back</button>
 
       </div>
     </div>
@@ -75,7 +77,7 @@ export default {
     getMy() {
       this.axios.get('/me-data').then(res => {
         this.user = res.data[0]
-
+        this.role=this.user.role
         console.log(res.data[0])
         // this.role=res.data.user.role
 

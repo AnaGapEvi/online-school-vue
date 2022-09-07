@@ -16,13 +16,13 @@
               <div style="max-width: 30% ;margin: 5px" v-for="item in assignments"
                    :key="item.id"
               >
-                <div class="cart" style="padding:15px; border-radius: 15px; background-color: #e0d5d5;">
+                <div class="cart" style="padding:15px; border-radius: 15px; background-color: #324960; color:  white">
                   <h5 >{{item.title}}</h5>
                   <p style=" width: 100%; word-wrap: break-word;">{{ item.description }} </p>
                   <p>Marks: {{item.mark}}</p>
                   <p>Deadline: {{item.date}}</p>
                   <p>Created: {{ moment(item.created_at).format("DD-MM-YYYY")}}</p>
-                  <img :src="`http://127.0.0.1:8000/`+item.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px">
+                  <expandable-image :src="`http://127.0.0.1:8000/`+item.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px"></expandable-image>
                   <p></p>
                   <b-button variant="warning"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-assignment/'+item.id}">Edit</router-link>  </b-button>
                   <b-button variant="danger" @click=deleteAssignment(item.id)> Delete </b-button>

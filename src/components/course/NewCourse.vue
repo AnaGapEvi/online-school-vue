@@ -6,7 +6,7 @@
       <div  style="width: 78%; background-color: white; padding: 15px ">
         <div style="display: flex; justify-content: space-between">
           <h3 style="color: black; text-align: center; padding-top: 15px">Add Course</h3>
-          <router-link to="/all-courses">All Course</router-link>
+          <router-link to="/all-courses" style="color: black">All Course</router-link>
         </div>
         <validation-observer ref="observer">
           <b-form @submit.prevent="new_course">
@@ -16,7 +16,6 @@
             >
               <b-form-group
                 label-class="form-label"
-                label="Course name:"
                 label-for="subject"
                 slot-scope="{ errors }"
                 :invalid-feedback="errors[0]"
@@ -24,7 +23,7 @@
                 <b-form-input
                   id="news"
                   v-model="form.name"
-                  placeholder="........"
+                  placeholder="Course name"
                   :state="errors[0] ? false : null"
                   trim
                 />
@@ -32,7 +31,7 @@
               </b-form-group>
             </validation>
 
-            <b-button style="width: 30%;margin-top: 25px; border: none" type="submit" variant="success">Add course</b-button>
+            <button class="btn" style="margin-top: 25px; border: none" type="submit" >Add course</button>
 
           </b-form>
         </validation-observer>
@@ -72,5 +71,19 @@ export default {
 .course{
   /*padding: 15px;*/
   background-color: #324960;
+}
+.btn{
+  width: 100%;
+  float: right;
+  font-size: 20px;
+  text-align: center;
+  /*line-height: 100px;*/
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
+  background-size: 600%;
+}
+#news{
+  border-radius: 50px;
 }
 </style>

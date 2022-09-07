@@ -11,19 +11,22 @@
             <h4>All Announcement</h4>
             <router-link to="/new-announcement" v-if="role==='admin'">New Announcement</router-link>
           </div>
-          <div style="display:flex;flex-wrap: wrap; justify-content: center; background-color: white; margin-bottom: 15px;padding: 15px 0 ">
+          <div style="display:flex;flex-wrap: wrap; justify-content: space-around; background-color: white; margin-bottom: 15px;padding: 15px 0 ">
             <div style="margin: 5px" v-for="item in announcements"
                  :key="item.id"
             >
-              <div class="cart" style="width: 20rem;border-radius: 15px; background-color: #e0d5d5; padding: 5px">
-                <h3 style="color:black; text-align: right">{{item.title}}</h3>
-                <p style="color:black; text-align: right; width: 100%">
+              <div class="cart" style="width: 20rem;border-radius: 15px; background-color: #324960; padding: 15px; color: white">
+                <h3 style="text-align: right">{{item.title}}</h3>
+                <p style="text-align: right; width: 100%">
                   {{ item.body }}
                 </p>
+                <div>
+                  <b-button variant="warning" v-if="role==='admin'"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-announcement/'+item.id}">Edit</router-link>  </b-button>
+                  <b-button variant="danger" v-if="role==='admin'" @click=deleteAnnouncement(item.id) > Delete </b-button>
+                </div>
 
-                <b-button variant="warning" v-if="role==='admin'"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-announcement/'+item.id}">Edit</router-link>  </b-button>
-                <b-button variant="danger" v-if="role==='admin'" @click=deleteAnnouncement(item.id)> Delete </b-button>
-              </div>            </div>
+              </div>
+            </div>
           </div>
           <div style="background-color: white;padding: 15px 10px 15px 10px; text-align: center">This dashboard was generated on OCAS</div>
         </div>

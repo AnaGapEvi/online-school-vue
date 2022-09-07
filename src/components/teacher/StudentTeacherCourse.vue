@@ -83,4 +83,8 @@ table, th, td {
   border: 1px solid;
   padding: 5px;
 }
+tr:hover{
+  background:#BDC3C7;
+  color:#FFFFFF;
+}
 </style>

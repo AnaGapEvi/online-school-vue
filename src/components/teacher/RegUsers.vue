@@ -13,7 +13,7 @@
         </div>
         <div style="background-color: white; padding: 15px; margin-bottom: 15px; ">
           <div v-for="course in courses">
-            <h3 v-if="course.users.length>0" style="margin: 25px">{{course.name}}</h3>
+            <h4 v-if="course.users.length>0" style="color: #324960; margin: 25px">{{course.name}}</h4>
             <table v-if="course.users.length>0" style="width: 100%; border: 1px solid black;">
               <tr style="width: 60%; border: 1px solid black">
                 <th>No</th>
@@ -77,5 +77,9 @@ export default {
 .dashboard{
   background-color: #324960;
   min-height: 100vh;
+}
+tr:hover{
+  background:#BDC3C7;
+  color:#FFFFFF;
 }
 </style>

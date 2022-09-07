@@ -4,20 +4,21 @@
       <dashboard-nav/>
       <div style="width: 90%;background-color: #324960; padding-top: 80px">
         <div style="box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);margin: 25px;padding: 15px 10px 15px 10px; background-color: white; border-radius: 20px">
-          <h4 style="text-align: center">Assignments</h4> <hr>
+          <h2 style="text-align: center">Assignments</h2> <hr>
           <div  style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);  margin: 20px auto; text-align: center; padding: 10px" v-for="task in tasks">
-            <h3 >{{task.user.name}}</h3>
+            <h4 >Teacher: {{task.user.name}}</h4>
             <h3 >{{task.title}}</h3>
             <div style=" word-wrap: break-word;">
-              {{ task.description }}
+              <b>Description:</b> {{ task.description }}
             </div>
-            <p>Marks: {{task.mark}}</p>
-            <p>Deadline: {{task.date}}</p>
-            <p>Created: {{moment(task.created_at).format('YYYY-MM-DD')}}</p>
+            <p><b>Marks: </b> {{task.mark}}</p>
+            <p style="display: inline;"><b> Deadline:</b> {{task.date}}</p> /
+            <p style="display: inline"><b>Created:</b> {{moment(task.created_at).format('YYYY-MM-DD')}}</p>
             <expandable-image :src="`http://127.0.0.1:8000/`+task.file" class="shadow-lg p-3 bg-white rounded image" height="100%" width="100%" />
+            <hr>
+            <h5>Answers</h5>
+            <div class="flex-wrap" v-for="i in task.student_assignment" style="width: 30%; margin-top: 10px; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1); ">
 
-            <div class="flex-wrap" v-for="i in task.student_assignment" style="margin-top: 10px; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1); ">
-              <h5>Answers</h5>
               {{i.user_id}}
               <expandable-image  :src="`http://127.0.0.1:8000/`+i.file_name" class="shadow-lg p-3 bg-white rounded image" height="100%" width="100%" />
 <!--                      {{i.verified}}-->

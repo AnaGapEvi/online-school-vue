@@ -15,9 +15,9 @@
             <div style="margin: 5px" v-for="item in news"
                  :key="news.id"
             >
-              <div class="cart" style="width: 20rem;border-radius: 15px; background-color: rgba(116,196,196,0.7); padding: 5px">
-                <h3 style="color:black;">{{item.title}}</h3>
-                <p style="color:black; width: 100%">
+              <div class="cart" style="padding: 15px; width: 20rem;border-radius: 15px; background-color: #324960; color: white;">
+                <h3>{{item.title}}</h3>
+                <p style="width: 100%">
                   {{ item.body }}
                 </p>
 

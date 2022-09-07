@@ -2,11 +2,11 @@
   <div class="subjects" style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); ">
     <dashboard-nav style="position: fixed;z-index: 1; width: 100%"/>
     <div style="display: flex; justify-content: space-between; padding-top: 90px ">
-      <aside-navbar style="  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); width: 18%; background-color: white; margin-right: 15px"/>
-      <div  style="text-align: center;  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); min-width: 80%; background-color: antiquewhite; padding: 15px ">
+      <aside-navbar style="width: 18%;"/>
+      <div  style="text-align: center;  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); min-width: 80%; padding: 15px ">
+       <h3> Select the subject  and the date the task was created</h3>
         <form method="get">
           <select :value="form.subject_id" v-model="form.subject_id" style="border: 2px solid darkblue; padding: 8px; border-radius: 5px; width: 30%">
-            <option selected="selected">Subject</option>
             <option v-for="subject in subjects" style="width: 80%; border-radius: 5px; padding: 5px; margin-top: 5px" :key="subject.id " v-bind:value="subject.id" >
               {{subject.name}}
             </option>
@@ -207,5 +207,8 @@ export default {
     display: block;
     text-align: center;
   }
+}
+h3{
+  color: rgba(255, 255, 255, 0.67);
 }
 </style>

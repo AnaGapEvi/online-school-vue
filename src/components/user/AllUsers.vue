@@ -1,9 +1,9 @@
 <template>
   <div class="subjects">
     <dashboard-nav style="position: fixed;z-index: 1; width: 100%"/>
-    <div style="display: flex; padding-top: 90px ">
-      <aside-navbar style="width: 18%; background-color: white; margin-right: 15px"/>
-      <div  style="width: 100%; background-color: white; padding: 15px ">
+    <div style="display: flex;justify-content: space-between;padding-top: 90px ">
+      <aside-navbar style="width: 20%;"/>
+      <div  style="width: 78%; background-color: white; padding: 15px ">
         <div style="display: flex; justify-content: space-between">
           <h1>All Students</h1>
           <router-link to="/add-teacher">Add Teacher</router-link>
@@ -73,5 +73,9 @@ export default {
   /*padding: 15px;*/
   background-color: #324960;
   height: 100%;
+}
+tr:hover{
+  background:#BDC3C7;
+  color:#FFFFFF;
 }
 </style>

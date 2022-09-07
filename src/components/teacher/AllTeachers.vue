@@ -11,7 +11,7 @@
           <div>
             <div style="border-radius: 50px;padding: 5px; border: 1px solid deepskyblue; margin: 15px 0 ">
               <b-icon style="margin-right: 15px" icon="search" scale="1" variant="Secondary"></b-icon>
-              <input type="text" placeholder="Search task by teacher name ......." v-model="keyword" style="border: none; width: 95%;">
+              <input type="text" placeholder="Search task by teacher name ......." v-model="keyword" style="outline: none; border: none; width: 95%;">
             </div>
 
             <div v-if="Tasks.length > 0">
@@ -29,13 +29,13 @@
                   <p> <b>Marks:</b> {{assignment.mark}}</p>
                   <p> <b>Deadline: </b>{{assignment.date}}</p>
                   <p> <b> Created: </b>{{assignment.created_at}}</p>
-                  <img :src="`http://127.0.0.1:8000/`+assignment.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px">
+                  <expandable-image :src="`http://127.0.0.1:8000/`+assignment.file" class="shadow-lg p-3 bg-white rounded" height="100px" width="100px"></expandable-image>
 
                 </div>
               </div>
           </div>
         </div>
-        <table style="width: 90%; border: 1px solid black;">
+        <table>
           <tr style="width: 60%; border: 1px solid black">
             <th>No</th>
             <th>Teachers</th>
@@ -126,5 +126,13 @@ p{
   /*padding: 15px;*/
   background-color: #324960;
   height: 100%;
+}
+table{
+  width: 100%;
+  border: 1px solid black;
+}
+tr:hover{
+  background:#BDC3C7;
+  color:#FFFFFF;
 }
 </style>

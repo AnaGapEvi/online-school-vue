@@ -74,4 +74,10 @@ export default {
   min-height: 100vh;
   background-color: #324960;
 }
+th{
+  background-color: #74b9ea;
+}
+tr{
+  text-align: center;
+}
 </style>

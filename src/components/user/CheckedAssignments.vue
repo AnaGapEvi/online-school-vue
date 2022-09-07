@@ -8,8 +8,8 @@
 <!--        </div>-->
         <div style="width: 80%; margin: 25px auto; background-color: #324960">
           <div style="margin-bottom: 15px;padding: 15px 10px 15px 10px; background-color: white;display: flex; justify-content: space-between">
-            <h4>Checked Assignments</h4>
-            <button @click.prevent="back()">  X </button>
+            <h3>Checked Assignments</h3>
+            <button style=" border: none; background-color: white" @click.prevent="back()"><h4> X</h4></button>
           </div>
           <div style="display:flex;flex-wrap: wrap; justify-content: center; background-color: white; margin-bottom: 15px;padding: 15px 0 ">
             <div v-for="i in checkedAssignments" style="border: #324960 1px solid; margin: 5px ; padding: 5px; border-radius: 7px">

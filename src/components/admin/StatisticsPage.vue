@@ -3,9 +3,9 @@
     <dashboard-nav style="position: fixed;z-index: 1; width: 100%"/>
     <div style="display: flex; padding-top: 90px ">
       <aside-navbar style="width: 25%; background-color: white; margin-right: 15px"/>
-      <div   style="  height: 100vh; overflow: scroll;width: 100%; background-color: white; padding: 15px ">
+      <div   style="height: 100vh; overflow: scroll;width: 100%; background-color: white; padding: 15px ">
         <div style="display: flex; justify-content: space-between">
-          <h1>All Statistics page student</h1>
+          <h1 style="width: 100%; margin-bottom: 25px">All Statistics page student</h1>
           <input type="text" name="search" placeholder="Search user by page name" class="form-control search" v-model="keyword">
 
           <!--          <router-link to="/add-teacher">Add Teacher</router-link>-->
@@ -85,6 +85,13 @@ export default {
   /*padding: 15px;*/
   background-color: #324960;
   height: 100%;
+}
+tr:hover{
+  background:#BDC3C7;
+  color:#FFFFFF;
+}
+th{
+  background-color: #74b9ea;
 }
 .search{
   height: 50px;
