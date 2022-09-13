@@ -127,7 +127,6 @@
                 rules="required"
               >
                 <b-form-group
-
                   id="input-group-5"
                   label="Course:"
                   label-for="input-5"
@@ -144,7 +143,6 @@
             </b-form>
           </validation-observer>
         </div>
-
         <span v-if="error!==''">{{error}}</span>
       </div>
     </div>

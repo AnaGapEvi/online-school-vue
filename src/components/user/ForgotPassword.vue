@@ -77,9 +77,6 @@
             </validation>
             <div class="mt-3">
               <b-button style="width: 100%; background-color: deepskyblue; border: none" type="submit" >Forgot Password</b-button>
-
-
-
             </div>
             <span style="color: #e59898" v-if="error!==''">{{error}}</span>
           </b-form>

@@ -49,7 +49,6 @@ export default {
         name:''
       },
       error:'',
-
     }
   },
   methods:{
@@ -57,7 +56,7 @@ export default {
       this.axios.post('/new-course', this.form).then(response =>{
         this.$router.push({name: 'AllCourses'})
       }).catch(e=>{
-        return e
+        return this.error=e.response.data.message
       })
     },
 

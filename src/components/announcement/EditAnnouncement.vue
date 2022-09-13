@@ -95,7 +95,6 @@ export default {
     edit_announcement(){
       this.axios.put(`/edit-announcement/`+this.$route.params.id, this.announcement).then(response =>{
         if(response){
-
           this.$router.push({name: "AllAnnouncement"});
         }
       }).catch(e=>{

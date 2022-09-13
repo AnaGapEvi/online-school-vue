@@ -12,7 +12,7 @@
             <button style=" border: none; background-color: white" @click.prevent="back()"><h4> X</h4></button>
           </div>
           <div style="display:flex;flex-wrap: wrap; justify-content: center; background-color: white; margin-bottom: 15px;padding: 15px 0 ">
-            <div v-for="i in checkedAssignments" style="border: #324960 1px solid; margin: 5px ; padding: 5px; border-radius: 7px">
+            <div v-for="i in checkedAssignments" :key="i.id" style="border: #324960 1px solid; margin: 5px ; padding: 5px; border-radius: 7px">
               <h3>{{i.assignment.title}}</h3>
               <p>Task number: {{i.assignment.id}}</p>
 
@@ -20,7 +20,7 @@
 
               <p v-if="i.verified=='1'" style="color: green"><b> verified</b></p>
               <p v-if="i.verified=='0'" style="color: red"><b> unverified</b></p>
-              <div v-for="item in i.assignment">
+              <div v-for="item in i.assignment" :key="item.id">
                 <p>{{ item.title }}</p>
                 <p >{{ item.description }}</p>
               </div>

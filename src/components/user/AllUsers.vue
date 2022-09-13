@@ -25,7 +25,7 @@
             <td style="padding: 5px">{{ student.email}}</td>
             <td style="padding: 5px">{{ student.role_number}}</td>
             <td style="padding: 5px">
-              <ul style="list-style-type: none; margin: 0" v-for="course in student.courses">
+              <ul style="list-style-type: none; margin: 0" v-for="course in student.courses" :key="course.id">
                 <li>{{ course.name}}</li>
               </ul>
             </td>
@@ -57,7 +57,6 @@ export default {
     getTeachers() {
         this.axios.get('all-users').then((res) => {
           this.users = res.data
-          // return resolve(true);
         }).catch(error=> {
           return error
 

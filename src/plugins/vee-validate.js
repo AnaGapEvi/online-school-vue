@@ -9,6 +9,14 @@ extend("email", {
   ...email,
   message: "Enter correct email address"
 });
+extend("min", {
+  ...min,
+  message: "min 7 simbol"
+});
+extend("max", {
+  ...min,
+  message: "max 10 simbol"
+});
 // extend("password", {
 //   ...forgotPassword,
 //   message: "Enter correct email address"

@@ -5,7 +5,6 @@
         <p style="word-wrap: break-word; color:black; text-align: right; width: 100%">
           {{ item.body }}
         </p>
-
         <b-button variant="warning"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-announcement/'+item.id}">Edit</router-link>  </b-button>
         <b-button variant="danger" @click=deleteAnnouncement(item.id)> Delete </b-button>
       </div>
@@ -24,7 +23,7 @@ export default {
   methods:{
     deleteAnnouncement(id){
       this.axios.delete(`/delete-announcement/${id}`).then(response =>{
-        window.location.reload()
+        // delete this.item
         return response
       }).catch(e =>{
         return e

@@ -13,14 +13,13 @@
           </div>
           <div style="display:flex;flex-wrap: wrap; justify-content: center; background-color: white; margin-bottom: 15px;padding: 15px 0 ">
             <div style="margin: 5px" v-for="item in news"
-                 :key="news.id"
+                 :key="item.id"
             >
               <div class="cart" style="padding: 15px; width: 20rem;border-radius: 15px; background-color: #324960; color: white;">
                 <h3>{{item.title}}</h3>
                 <p style="width: 100%">
                   {{ item.body }}
                 </p>
-
                 <b-button variant="warning" v-if="role==='admin'"><router-link style="text-decoration: none; color: white" :to="{path: '/edit-news/'+item.id}">Edit</router-link>  </b-button>
                 <b-button variant="danger" v-if="role==='admin'" @click=deleteNews(item.id)> Delete </b-button>
               </div>

@@ -23,7 +23,6 @@ export default {
   mounted() {
     this.getCourses()
   },
-
   methods: {
     getCourses() {
       // return new Promise((resolve, reject) => {

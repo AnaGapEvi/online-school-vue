@@ -20,8 +20,10 @@ export default {
   components:{SearchTaskBySubject, SearchTaskByNumber, SearchByTeacherName},
   data () {
     return {
+
     }
   }
+
 }
 </script>
 
@@ -33,7 +35,6 @@ export default {
 }
 .dashboard{
   background-image: url("https://www.cedefop.europa.eu/files/images/headline_coronavirus_interest_online_learning_002.jpg");;
-  /*background-repeat: no-repeat;*/
   background-size: 100%;
   width: 78%;
   padding: 15px;

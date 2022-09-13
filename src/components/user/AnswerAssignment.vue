@@ -21,7 +21,6 @@
                     :invalid-feedback="errors[0]"
                   >
                     <input type="file" name="file" @change="onImageChange" :state="errors[0] ? false : null">
-
                   </b-form-group>
                 </validation>
               </div>

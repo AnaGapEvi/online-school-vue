@@ -67,8 +67,9 @@ export default {
     },
     deleteAnnouncement(id){
       this.axios.delete(`/delete-announcement/${id}`).then(response =>{
-        let i = this.announcements.map(data => data.id).indexOf(id)
-        this.announcements.splice(i, 1)
+       this.getAnnouncements()
+        // let i = this.announcements.map(data => data.id).indexOf(id)
+        // this.announcements.splice(i, 1)
         return response
       }).catch(e =>{
         return e
@@ -93,9 +94,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .news{
-  /*display: flex;*/
-  /*justify-content: ;*/
-  /*align-items: center;*/
+
   min-height: 100vh;
   background-color: #324960;
 }

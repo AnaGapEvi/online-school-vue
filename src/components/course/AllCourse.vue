@@ -46,8 +46,10 @@ export default {
     getCourses() {
       return new Promise((resolve, reject) => {
         this.axios.get('courses').then((res) => {
-          this.courses = res.data
-          return resolve(true);
+          if(res){
+            this.courses = res.data
+            return resolve(true);
+          }
         }).catch((error) => {
           return reject(error)
         })
@@ -61,16 +63,13 @@ export default {
       }).catch(e =>{
         return e
       })
-
     },
-
   }
 }
 </script>
 
 <style scoped>
 .subjects{
-  /*padding: 15px;*/
   min-height: 100vh;
   background-color: #324960;
 }

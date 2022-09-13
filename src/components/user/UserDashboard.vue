@@ -4,27 +4,27 @@
       <div style="width: 100%;background-color: #324960;padding-top: 70px; margin: 0px auto">
           <div style="box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);margin: 25px; padding: 15px 10px 15px 10px; background-color: white; border-radius: 20px">
             <h4 style="text-align: center">News</h4> <hr>
-            <div  v-for="item in news" class="box">
+            <div  v-for="item in news" class="box" :key="item.id">
                 <h4>{{item.title}}</h4>
                 <h6>{{item.body}}</h6>
             </div>
           </div>
           <div style="box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);margin: 25px;padding: 15px 10px 15px 10px; background-color: white; border-radius: 20px">
             <h4 style="text-align: center">Announcement</h4><hr>
-            <div class="box" v-for="item in announcements">
+            <div class="box" v-for="item in announcements" :key="item.id">
               <h4 style="color: green">{{item.title}}</h4>
               <h6>{{item.body}}</h6>
             </div>
           </div>
           <div style="box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);margin: 25px;padding: 15px 10px 15px 10px; background-color: white; border-radius: 20px">
             <h4 style="text-align: center">Notifications</h4><hr>
-            <div style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1); width: 80%; margin: 20px auto; text-align: center; padding: 10px" v-for="notification in notifications">
+            <div style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1); width: 80%; margin: 20px auto; text-align: center; padding: 10px" v-for="notification in notifications" :key="notification.id">
               {{notifications.name}}
-              <div style="color: black" v-for="course in notification.courses">
+              <div style="color: black" v-for="course in notification.courses" :key="course.id">
                   <h4 v-if="course.notifications.length">{{course.name}}</h4>
                   <h4 v-else> not new notification in {{course.name}}</h4>
 
-                <div class="box"  v-for="item in course.notifications">
+                <div class="box"  v-for="item in course.notifications" :key="item.id">
                   <p>{{item.title}}</p>
                   <p>{{item.body}}</p>
                   <p>teacher: {{item.user.name}}</p>
@@ -33,11 +33,11 @@
             </div>
           </div>
           <div style="box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);margin: 25px;padding: 15px 10px 15px 10px; background-color: white; border-radius: 20px">
-            <h4 >Courses</h4>
-            <router-link to="/course-participants">All Courses</router-link>
-            <hr>
-            <div v-for="i in userCourses">
-              <div v-for="item in i.courses">
+<!--            <h4 >Courses</h4>-->
+<!--            <router-link to="/course-participants">All Courses</router-link>-->
+<!--            <hr>-->
+            <div v-for="i in userCourses" :key="i.id">
+              <div v-for="item in i.courses" :key="item.id">
                 <h6>{{item.name}}</h6>
               </div>
             </div>
@@ -48,12 +48,12 @@
              <router-link to="/checked-assignments">Answers</router-link>
            </div>
             <hr>
-            <div v-for="item in assignments" style="display: flex;flex-wrap: wrap; padding: 10px; margin: 5px; justify-content: space-evenly">
-              <div v-for="z in item.courses" style="width: 40%; padding: 15px;box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 1); margin: 5px ">
+            <div v-for="item in assignments" :key="item.id" style="display: flex;flex-wrap: wrap; padding: 10px; margin: 5px; justify-content: space-evenly">
+              <div v-for="z in item.courses" :key="z.id" style="width: 40%; padding: 15px;box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 1); margin: 5px ">
                   <h4 v-if="z.tasks.length ">{{z.name}}</h4>
                   <h5 v-else>Not new Tasks {{z.name}}</h5>
                     <hr>
-                    <div v-for="y in z.tasks" style=" padding: 15px; margin: 5px ">
+                    <div v-for="y in z.tasks" :key="y.id" style=" padding: 15px; margin: 5px ">
                       <label>Title: </label>
                       <h5> <b>{{y.title}}</b></h5>
                       <hr>
@@ -135,7 +135,6 @@ export default {
         this.axios.get('/user-tasks-list').then((res) => {
           this.assignments = res.data
           return resolve(true);
-
         }).catch((error) => {
           return reject(error)
         })

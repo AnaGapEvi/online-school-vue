@@ -27,7 +27,7 @@
               <tr v-for="report in reports" :key="report.id" style="width: 60%; border: 1px solid black">
                 <td style="padding: 5px">{{  report.id}}</td>
                 <td style="padding: 5px">{{ report.title}}</td>
-                <td style="padding: 5px; ">{{ report.description}}</td>
+                <td style="padding: 5px">{{ report.description}}</td>
                 <td style="padding: 5px">{{ moment(report.created_at).format("YYYY-MM-DD")}}</td>
                 <td style="padding: 5px">{{ report.date}}</td>
               </tr>
@@ -59,10 +59,8 @@ export default {
 
     }
   },
-
   mounted() {
     this.getSubjects()
-
   },
   methods:{
     getSubjects() {

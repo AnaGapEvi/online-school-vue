@@ -55,14 +55,6 @@ export default {
         })
       })
     },
-    // logout(){
-    //   this.axios.get('/logout').then(result => {
-    //     localStorage.removeItem('access_token');
-    //     this.$router.push({name: "Home"})
-    //   }).catch(error => {
-    //     return error
-    //   })
-    // },
   }
 }
 </script>

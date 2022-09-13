@@ -37,7 +37,7 @@
                 </validation>
                 <validation
                   name="body"
-                  rules="required|min:15"
+                  rules="required|min:10"
                 >
                   <b-form-group
                     label-class="form-label"
@@ -83,9 +83,9 @@ export default {
   methods:{
     new_announcement(){
       this.axios.post('/new-announcement', this.form).then(response =>{
-        this.$router.push({name: 'AllAnnouncement'})
-
-        console.log(response)
+        if(response){
+          this.$router.push({name: 'AllAnnouncement'})
+        }
       }).catch(e=>{
         console.log(e)
       })
@@ -102,7 +102,5 @@ export default {
   min-height: 100vh;
   background-color: #324960;
 }
-#news{
-    ;
-}
+
 </style>

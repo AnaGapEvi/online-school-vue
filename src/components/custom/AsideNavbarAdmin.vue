@@ -11,7 +11,7 @@
           </b-nav-item>
         </b-navbar-nav>
         <!--/*        <hr style="color: white">*/-->
-        <b-navbar-nav  style="padding: 8px"toggleable  class="ml-auto ">
+        <b-navbar-nav  style="padding: 8px" toggleable  class="ml-auto ">
           <b-nav-item>
             <b-icon style="margin-right: 15px" icon="files" scale="1" variant="Secondary"></b-icon>
             <b-nav-item-dropdown text="News" right>
@@ -21,7 +21,7 @@
           </b-nav-item>
         </b-navbar-nav>
 
-        <b-navbar-nav  style="padding: 8px"toggleable  class="ml-auto ">
+        <b-navbar-nav  style="padding: 8px" toggleable  class="ml-auto ">
           <b-nav-item >
             <b-icon  style="display: inline-block; margin-right: 15px" icon="files" scale="1" variant="Secondary"></b-icon>
             <b-nav-item-dropdown text="Announcement" right>

@@ -30,8 +30,8 @@
                     <b-card-text v-if="user.role_number !== ''"> Role number:
                       {{ user.role_number }}
                     </b-card-text>
-                    <b-card-text v-for="i in user.courses"> Course:
-                      {{ i.name }}
+                    <b-card-text v-for="course in user.courses" :key="course.id"> Course:
+                      {{ coursei.name }}
                     </b-card-text>
                   </b-card-body>
                 </b-col>
@@ -40,11 +40,9 @@
             </b-card>
           </div>
          </div>
-
       </div>
     </div>
     <footer> <p>This dashboard was generated on OCAS </p></footer>
-
   </div>
 </template>
 
@@ -80,13 +78,10 @@ export default {
         this.role=this.user.role
         console.log(res.data[0])
         // this.role=res.data.user.role
-
       }).catch(error => {
         return error
-
       })
     },
-
   }
 }
 </script>

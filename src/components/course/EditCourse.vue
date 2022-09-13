@@ -85,7 +85,6 @@ export default {
     edit_course(){
       this.axios.put(`/edit-course/`+this.$route.params.id, this.course).then(response =>{
         if(response){
-
           this.$router.push({name: "AllCourses"});
         }
       }).catch(e=>{
@@ -96,13 +95,8 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .course{
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*min-height: 100vh;*/
   background-color: #e0d5d5;
 }
 </style>

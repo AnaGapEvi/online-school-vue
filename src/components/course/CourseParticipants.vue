@@ -2,9 +2,7 @@
   <div class="participant">
     <dashboard-nav style="position: fixed;z-index: 1; width: 100%; background-color: gray"/>
     <button style="float: right; margin-top: 80px; border: none; color: white; background-color: #324960" @click.prevent="back()">X</button>
-
     <div style="display: flex;padding-top: 90px; justify-content: space-evenly">
-
       <div style="  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1); margin: 0 auto; width: 30%; padding: 15px;background-color: deepskyblue" >
           <div style="padding-top: 30px" v-for="i in regCourses" :key="i.id" class="sts">
             <b-card
@@ -61,7 +59,6 @@ export default {
         }).catch(e =>{
           return e
         })
-
     },
     getRegisteredCourse() {
       return new Promise((resolve, reject) => {

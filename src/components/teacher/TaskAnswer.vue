@@ -18,10 +18,8 @@
             <hr>
             <h5>Answers</h5>
             <div class="flex-wrap" v-for="i in task.student_assignment" style="width: 30%; margin-top: 10px; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1); ">
-
               {{i.user_id}}
               <expandable-image  :src="`http://127.0.0.1:8000/`+i.file_name" class="shadow-lg p-3 bg-white rounded image" height="100%" width="100%" />
-<!--                      {{i.verified}}-->
               <b-button variant="danger" v-if="i.verified===0" @click=verify(i.id)> Verified </b-button>
               <p v-if="i.verified===1" style="color: green"> Verified </p>
             </div>

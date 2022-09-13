@@ -32,9 +32,9 @@ export default {
       return new Promise((resolve, reject) => {
         this.axios.get('/me')
           .then(result => {
-            this.email = result.data.user.name
-            this.role = result.data.user.role
-            if(result.data.user.course){
+            if(result){
+              this.email = result.data.user.name
+              this.role = result.data.user.role
               this.course = result.data.user.course
             }
             resolve(true)
@@ -47,8 +47,6 @@ export default {
       this.axios.get('/logout').then(result => {
         localStorage.removeItem('access_token');
         this.$router.push({name: "Home"})
-        // window.location.reload()
-
       }).catch(error => {
         return error
       })
